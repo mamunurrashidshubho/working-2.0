@@ -1,0 +1,19 @@
+titles = [
+    "don quixote", 
+    "in search of lost time", 
+    "ulysses", 
+    "the odyssey", 
+    "war and peace", 
+    "moby dick", 
+    "the divine comedy", 
+    "hamlet", 
+    "the adventures of huckleberry finn", 
+    "the great gatsby"
+]
+
+
+capitalized_titles = [' '.join([word.capitalize() for word in title.split()]) for title in titles]
+
+
+for title in capitalized_titles:
+    print(title)
