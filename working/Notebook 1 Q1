@@ -1,0 +1,7 @@
+eps = 1.0  
+
+while (1 + eps) != 1:
+    eps = eps / 2  
+
+print("The value of epsilon:", eps)
+The value of epsilon: 1.1102230246251565e-16
