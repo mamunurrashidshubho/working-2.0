@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+a = np.array([0.39, 0.72, 1.00, 1.52, 5.20, 9.54, 19.22, 30.06, 39.48])  
+P = np.array([0.24, 0.62, 1.00, 1.88, 11.86, 29.46, 84.01, 164.8, 248.09])  
+names = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", 
+         "Uranus", "Neptune", "Pluto"]
+
+
+plt.figure(figsize=(10, 8))
+plt.scatter(a, P, color='red')
+
+
+for i, name in enumerate(names):
+    plt.text(a[i], P[i], name, fontsize=10, ha='right')
+
+
+plt.xscale('log')
+plt.yscale('log')
+
+
+plt.xlabel('Distance from Sun (AU)')
+plt.ylabel('Orbital Period (years)')
+plt.title('Orbital Period vs. Distance from the Sun')
+
+
+plt.grid(True)
+plt.show()
