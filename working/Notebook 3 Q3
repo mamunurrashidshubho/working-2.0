@@ -1,0 +1,61 @@
+# Circle filled with Solid Colour
+import numpy as np
+import matplotlib.pyplot as plt
+
+R = 1.0  
+theta = np.linspace(0, 2 * np.pi, 1000)  
+x = R * np.cos(theta)
+y = R * np.sin(theta)
+plt.figure(figsize=(6, 6))
+plt.fill(x, y, color='blue')  
+plt.plot(x, y, color='blue')  
+
+plt.gca().set_aspect('equal', adjustable='box')
+
+plt.xlim(-R - 0.2, R + 0.2)
+plt.ylim(-R - 0.2, R + 0.2)
+
+plt.title(f'Filled Circle with Radius {R}')
+plt.xlabel('x')
+plt.ylabel('y')
+
+plt.grid(True)
+plt.show()
+
+#Randomly Drawn Circle
+import numpy as np
+import matplotlib.pyplot as plt
+import random
+
+def draw_circle(x0, y0, R, color):
+    theta = np.linspace(0, 2 * np.pi, 1000)  
+    x = x0 + R * np.cos(theta)
+    y = y0 + R * np.sin(theta)
+    plt.fill(x, y, color=color)  
+    plt.plot(x, y, color='black')  
+
+plt.figure(figsize=(6, 6))
+
+for _ in range(10):
+    x0 = random.uniform(-5, 5)  
+    y0 = random.uniform(-5, 5)  
+    R = random.uniform(0.5, 2.0) 
+    color = (random.random(), random.random(), random.random()) 
+
+
+    draw_circle(x0, y0, R, color)
+
+
+plt.gca().set_aspect('equal', adjustable='box')
+
+# Set the limits of the plot
+plt.xlim(-5.5, 5.5)
+plt.ylim(-5.5, 5.5)
+
+plt.title('Randomly Drawn Circles')
+plt.xlabel('x')
+plt.ylabel('y')
+
+
+plt.grid(True)
+plt.show()
