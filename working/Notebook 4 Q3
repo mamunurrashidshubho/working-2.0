@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import optimize
+
+
+def f(x):
+    return x**3 - 2*x**2 - 11*x + 12
+
+x_vals = np.linspace(0, 4, 400)
+y_vals = f(x_vals)
+
+plt.plot(x_vals, y_vals, label=r'f(x) = x^3 - 6x^2 - 11x +12')
+plt.axhline(0, color='black',linewidth=1)
+plt.axvline(0, color='black',linewidth=1)
+plt.title("Plot of f(x)")
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.grid(True)
+plt.legend()
+plt.show()
+
+root1 = optimize.brentq(f, 0, 2)  
+root2 = optimize.brentq(f, 2, 3)  
+root3 = optimize.brentq(f, 3, 4)  
+
+print(f"Root 1: {root1}")
+print(f"Root 2: {root2}")
+print(f"Root 3: {root3}")
+
