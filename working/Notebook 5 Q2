@@ -1,0 +1,12 @@
+(*Define the function f(x)*)f[x] = Sin[x] Exp[-x]
+
+(*Integrate f(x)*)
+integratedF = Integrate [f[x], x]
+
+
+
+derivative = D [integratedF, x]
+# Outputs
+-(1/2) E^-x (Cos[x] + Sin[x])
+
+-(1/2) E^-x (Cos[x] - Sin[x]) + 1/2 E^-x (Cos[x] + Sin[x])
