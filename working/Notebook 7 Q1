@@ -1,0 +1,48 @@
+import random
+
+
+transition_matrix = {
+    'Bull': {'Bull': 0.9, 'Bear': 0.075, 'Recession': 0.025},
+    'Bear': {'Bull': 0.15, 'Bear': 0.8, 'Recession': 0.05},
+    'Recession': {'Bull': 0.25, 'Bear': 0.25, 'Recession': 0.5}
+}
+
+
+states = ['Bull', 'Bear', 'Recession']
+
+
+def simulate_markov_chain(num_days):
+    # Start with a random state
+    current_state = random.choice(states)
+    
+    
+    state_counts = {'Bull': 0, 'Bear': 0, 'Recession': 0}
+    
+   
+    for _ in range(num_days):
+       
+        state_counts[current_state] += 1
+        
+        next_state_probabilities = transition_matrix[current_state]
+        next_state = random.choices(
+            list(next_state_probabilities.keys()),
+            weights=list(next_state_probabilities.values()),
+            k=1
+        )[0]
+        
+   
+        current_state = next_state
+    
+  
+    return state_counts
+
+
+num_days = 100000
+state_counts = simulate_markov_chain(num_days)
+print("State counts after", num_days, "days:", state_counts)
+
+print("Fractions:", {state: count / num_days for state, count in state_counts.items()})
+
+Outputs
+State counts after 100000 days: {'Bull': 62524, 'Bear': 31294, 'Recession': 6182}
+Fractions: {'Bull': 0.62524, 'Bear': 0.31294, 'Recession': 0.06182}
